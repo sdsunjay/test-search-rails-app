@@ -1,15 +1,1 @@
 
-    <%= form_tag(posts_path, :method => 'get',class:'search-form navbar-form navbar-right', :style => 'padding: 0; !important' )do %>
-        <div class='field'>
-                <%= select_tag 'x', options_from_collection_for_select(location.all, 'id', 'name', params[:location_id]) ,{include_blank: 'from'}%>
-            </div>
-        <div class='field'>
-                <%= select_tag 'y', options_from_collection_for_select(location.all, 'id', 'name', params[:location_id]) ,{include_blank: 'to'}%>
-            </div>
-        <div class='field'>
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <div class='col-xs-12'>
-            <%= button_tag 'Search', :name=> nil, class:'btn btn-lg green-color' %>
-        </div>
-    <% end %>

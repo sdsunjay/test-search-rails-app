@@ -22,6 +22,23 @@
           <li><%= link_to "Sign In", new_user_session_path, class: "active" %></li>
         <% end %>
       </ul>
+
+    <%= form_tag(posts_path, :method => 'get',class:'search-form navbar-form navbar-right', :style => 'padding: 0; !important' )do %>
+    <div class='column'>
+            <div class='col-md-4 col-sm-4 col-xs-12 format-padding-right'>
+                <%= select_tag 'to', options_from_collection_for_select(Location.all, 'id', 'name',params[:location_id]) ,{include_blank: 'From'}%>
+            </div>
+            <div class='col-md-4 col-sm-4 col-xs-12 format-padding'>
+                <%= select_tag 'from', options_from_collection_for_select(Location.all, 'id', 'name',params[:location_id]) ,{include_blank: 'To'}%>
+            </div>
+            <div class='col-md-4 col-sm-4 col-xs-12 format-padding-left'>
+                <input name='when_date' type='text' placeholder='Date'>
+            </div>
+        <div class='col-xs-12'>
+            <%= button_tag 'Search', :name=> nil, class:'btn btn-sm green-color' %>
+        </div>
+      </div>
+    <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
